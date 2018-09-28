@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container{
+            height: 1000px;
+        }
+        #button{
+            outline: none;
+            box-shadow:none;
+            
+        }
+        h1{
+            text-align: center;
+            margin-top: 120px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+        table{
+            margin-top: 50px;
+        }
+        table thead{
+            background-color: #ccc;
+        }
+        table  td{
+            border-left: 1px solid #e6e6e6;
+             border-right: 1px solid #e6e6e6;
+            text-align: center;
+        }
+        tfoot td{
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+           <h1>后台控制系统</h1>
+           <button id="btn_add" class="btn btn-success" >添加</button>
+               <button  id="button" class="btn btn-danger"  onclick="shan()">删除</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+             <div class="modal-dialog" role="document">
+             <div class="modal-content">
+             <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalLabel">新增</h4>
+             </div>
+             <div class="modal-body">
+                 <div class="form-group">
+              <label for="txt_parentdepartment">文章标签</label>
+              <input  type="text" name="txt_parentdepartment" class="form-control" id="txt_parentdepartment" placeholder="标签" value="">
+              </div>
+              <div class="form-group">
+              <label for="txt_departmentname">文章标题</label>
+              <input type="text" name="txt_departmentname" class="form-control" id="txt_departmentname" placeholder="请输入标题" value="">
+              </div>
+              <div class="form-group">
+              <label for="txt_parentdepartment">发布人</label>
+              <input type="text" name="txt_parentdepartment" class="form-control" id="txt_parentdepartment" placeholder="请输入名字" value="">
+              </div>
+              <div class="form-group">
+              <label for="txt_departmentlevel">文章内容</label>
+              <textarea type="text" name="txt_departmentlevel" class="form-control" id="txt_departmentlevel" >
+              
+              </textarea>
+              
+              </div>
+              <div class="form-group">
+              <label for="txt_statu">上传时间</label>
+              <input type="text" name="txt_statu" class="form-control" id="txt_statu" placeholder="日期" value="">
+              </div>
+             </div>
+             <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+              <button onclick='add()' type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+             </div>
+             </div>
+             </div>
+             </div>
+
+        <table class="table table-hover">
+        <thead>
+                <td><input type="checkbox" name="" class="all"></td>
+                <td>新闻ID</td>
+                <td>文章标签</td>
+                <td>文章标题</td>
+                <td>作者</td>
+                <td>上传时间</td>
+                <td>发布状态</td>
+                <td>操作</td>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td><input type="checkbox"  name=""></td>
+                <td>001</td>
+                <td>新闻</td>
+                <td>...</td>
+                <td>作者-1</td>
+                <td>20180927</td>
+                <td><button id="button" class="btn btn-sm btn-info">已发布</button></td>
+                <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button"  class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name=""></td>
+                <td>002</td>
+                <td>新闻</td>
+                <td>...</td>
+                <td>作者-2</td>
+                <td>20180927</td>
+                <td><button id="button" class="btn btn-sm">待修改</button></td>
+                 <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name=""></td>
+                <td>003</td>
+                <td>明星</td>
+                <td>...</td>
+                <td>作者-3</td>
+                <td>20180927</td>
+               <td><button id="button" class="btn btn-sm">待修改</button></td>
+                 <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name=""></td>
+                <td>004</td>
+                <td>明星</td>
+                <td>...</td>
+                <td>作者-1</td>
+                <td>20180927</td>
+                <td><button id="button" class="btn btn-sm">待修改</button></td>
+                 <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name=""></td>
+                <td>005</td>
+                <td>游戏</td>
+                <td>...</td>
+                <td>作者-2</td>
+                <td>20180927</td>
+               <td><button id="button" class="btn btn-sm">待修改</button></td>
+                 <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name=""></td>
+                <td>006</td>
+                <td>游戏</td>
+                <td>...</td>
+                <td>作者-3</td>
+                <td>20180927</td>
+                <td><button id="button" class="btn btn-sm">待修改</button></td>
+                <td>
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+            <tr>
+               <td><input type="checkbox" name=""></td>
+                <td>007</td>
+                <td>文化</td>
+                <td>...</td>
+                <td>作者-1</td>
+                <td>20180927</td>
+                <td><button id="button" class="btn btn-sm">待修改</button></td>
+                 <td style="width:150px">
+                    <button id="button" style="margin-right: 20px;" class="btn btn-sm btn-success">编辑</button>
+                    <button id="button" class="btn btn-sm btn-danger del">删除</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="8">
+                <h6 style="text-align: right">共一页</h6>
+            </td>
+        </tfoot>
+        </table>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/autosize.js/4.0.2/autosize.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
